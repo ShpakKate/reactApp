@@ -16,10 +16,8 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                             '[path][name]__[local]--[hash:base64:5]' :
                             '[hash:base64:5]',
                     },
-
                 }
             },
-            // 'css-loader', // применяются только так глобальные стили
             "sass-loader",
         ],
     }
