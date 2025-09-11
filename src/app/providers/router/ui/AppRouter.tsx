@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader';
+import { ButtonBlock } from 'shared/ui/ButtonBlock/ui/ButtonBlock';
 
 const AppRouter = () => (
     <Routes>
@@ -13,6 +14,7 @@ const AppRouter = () => (
                     <Suspense fallback={<PageLoader />}>
                         <div className="page-wrapper">
                             {element}
+                            <ButtonBlock />
                         </div>
                     </Suspense>
                 )}
