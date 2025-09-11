@@ -3,5 +3,8 @@
   "Перевод": "Translate",
   "Главная старинца": "Main page",
   "Язык": "English",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ситуация": "Unexpected situation",
+  "Обноаить страницу": "Reload page",
+  "Выдать ошибку": "Throw error"
 }
