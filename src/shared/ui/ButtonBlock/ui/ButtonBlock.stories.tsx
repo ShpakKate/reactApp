@@ -1,10 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ButtonBlock } from './ButtonBlock';
-import { ThemeButton } from 'shared/ui/Button/Button';
+import { ButtonBlock, ThemeButton } from './ButtonBlock';
 
 export default {
     title: 'shared/ButtonBlock',
@@ -27,7 +25,7 @@ ClearButtonBlock.args = {
     theme: ThemeButton.CLEAR,
 };
 
-export const OutlineButtonBlock  = Template.bind({});
+export const OutlineButtonBlock = Template.bind({});
 OutlineButtonBlock.args = {
     children: 'Text',
     theme: ThemeButton.OUTLINE,

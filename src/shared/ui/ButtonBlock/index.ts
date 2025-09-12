@@ -1,1 +1,1 @@
-export { ButtonBlock } from './ui/ButtonBlock'
+export { ButtonBlock } from './ui/ButtonBlock';
