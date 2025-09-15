@@ -14,7 +14,6 @@ const AppRouter = () => (
                     <Suspense fallback={<PageLoader />}>
                         <div className="page-wrapper">
                             {element}
-                            <ButtonBlock />
                         </div>
                     </Suspense>
                 )}
