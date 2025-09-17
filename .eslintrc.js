@@ -55,6 +55,7 @@ module.exports = {
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'operator-linebreak': 'off',
+        'react/jsx-one-expression-per-line': 'off',
     },
     globals: {
         __IS_DEV__: true,
