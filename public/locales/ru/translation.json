@@ -10,8 +10,9 @@
   "throw error": "throw error",
   "Главная": "Главная",
   "О сайте": "О сайте",
-  "Increase button": "Increase button",
-  "toggle": "toggle",
+  "Переключить": "Переключить",
   "Короткий язык": "Ru",
-  "Войти": "Войти"
+  "Войти": "Войти",
+  "increment": "increment",
+  "decrement": "decrement"
 }
