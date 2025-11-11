@@ -23,7 +23,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     return (
         <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            детали
             <ArticleDetails id={id} />
         </div>
     );
