@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticlesPage } from 'pages/ArticlesPage';
+import ArticlesPage from 'pages/ArticlesPage/ui/ArticlesPage/ArticlesPage';
 
 export default {
     title: 'shared/ArticlesPage',
