@@ -17,7 +17,7 @@ interface InputProps extends HTMLInputProps {
 export const Input = memo((props: InputProps) => {
     const {
         className,
-        value,
+        value = '',
         onChange,
         type = 'text',
         placeholder,
@@ -78,7 +78,7 @@ export const Input = memo((props: InputProps) => {
                 {isCarretVisible && (
                     <span
                         className={cls.caret}
-                        style={{ left: `${caretPosition * 7}px` }}
+                        style={{ left: `${caretPosition * 8}px` }}
                     />
                 )}
             </div>
