@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { Article, ArticleView } from 'entities/Article';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItemSkeleton/ArticleListItemSkeleton';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 
@@ -31,6 +32,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const renderArticle = (article: Article) => (
         <ArticleListItem className={cls.card} article={article} view={view} key={article.id} />
     );
+
+    // if (!articles.length) {
+    //     return (
+    //         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+    //             <Text size={TextSize.L} title={t('Статьи не найдены')} />
+    //         </div>
+    //     );
+    // }
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

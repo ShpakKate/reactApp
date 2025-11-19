@@ -1,0 +1,94 @@
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
+import { memo, useCallback } from 'react';
+import {
+    ArticleSortField,
+    ArticleSortSelector, ArticleType,
+    ArticleTypeTabs,
+    ArticleView,
+    ArticleViewSelector,
+} from 'entities/Article';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Card } from 'shared/ui/Card/Card';
+import { Input } from 'shared/ui/Input/Input';
+import { useSelector } from 'react-redux';
+import { SortOrder } from 'shared/types';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { TabItem } from 'shared/ui/Tabs/Tabs';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { articlePageActions } from '../../model/slices/articlePageSlice';
+import {
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
+} from '../../model/selectors/articlePageSelectors';
+import cls from './ArticlesPageFilters.module.scss';
+
+interface ArticlesPageFiltersProps {
+    className?: string;
+    view: ArticleView;
+}
+
+export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
+    const { className, view } = props;
+    const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+    const sort = useSelector(getArticlesPageSort);
+    const order = useSelector(getArticlesPageOrder);
+    const search = useSelector(getArticlesPageSearch);
+    const type = useSelector(getArticlesPageType);
+
+    const onChangeView = useCallback((view: ArticleView) => {
+        dispatch(articlePageActions.setPage(1));
+        dispatch(articlePageActions.setView(view));
+    }, [dispatch]);
+
+    const fetchData = useCallback(() => {
+        dispatch(fetchArticlesList({ replace: true }));
+    }, [dispatch]);
+
+    const debounceFetchData = useDebounce(fetchData, 500);
+
+    const onChangeSort = useCallback((view: ArticleSortField) => {
+        dispatch(articlePageActions.setSort(view));
+        fetchData();
+    }, [fetchData, dispatch]);
+
+    const onChangeOrder = useCallback((view: SortOrder) => {
+        dispatch(articlePageActions.setOrder(view));
+        fetchData();
+    }, [fetchData, dispatch]);
+
+    const onChangeSearch = useCallback((search: string) => {
+        dispatch(articlePageActions.setSearch(search));
+        debounceFetchData();
+    }, [debounceFetchData, dispatch]);
+
+    const onChangeType = useCallback((value: ArticleType) => {
+        dispatch(articlePageActions.setType(value));
+        fetchData();
+    }, [fetchData, dispatch]);
+
+    return (
+        <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
+            <div className={cls.sortWrapper}>
+                <ArticleSortSelector
+                    sort={sort}
+                    order={order}
+                    onChangeSort={onChangeSort}
+                    onChangeOrder={onChangeOrder}
+                />
+                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+            </div>
+            <Card className={cls.search}>
+                <Input
+                    placeholder={t('Поиск')}
+                    value={search}
+                    onChange={onChangeSearch}
+                />
+            </Card>
+            <ArticleTypeTabs className={cls.tabs} value={type} onChangeType={onChangeType} />
+        </div>
+    );
+});
