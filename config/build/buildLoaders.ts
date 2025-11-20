@@ -17,7 +17,13 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     // Если не используем тайпскрипт - нужен babel-loader
     const typescriptLoader = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: {
+            loader: 'ts-loader',
+            // // TODO: добавить при запусен на https://app.netlify.com/
+            // options: {
+            //     transpileOnly: true,
+            // },
+        },
         exclude: /node_modules/,
     };
 
