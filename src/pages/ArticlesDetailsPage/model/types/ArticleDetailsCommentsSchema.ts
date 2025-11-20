@@ -6,8 +6,3 @@ export interface ArticleDetailsCommentsSchema extends EntityState<CommentItem>{
     error?: string;
     data?: CommentItem[]
 }
-// export interface ArticleDetailsCommentsSchema {
-//     isLoading?: boolean;
-//     error?: string;
-//     ids?: CommentItem[]
-// }
