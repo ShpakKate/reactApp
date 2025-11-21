@@ -91,7 +91,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
-    "@kate_shpak_07/eslint-plugin-path-checker": "^0.0.7",
+    "@kate_shpak_07/eslint-plugin-path-checker": "^0.0.8",
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^0.26.1",
     "concurrently": "^7.0.0",
