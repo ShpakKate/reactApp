@@ -5,6 +5,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 import cls from './ArticleDetailsPageHeader.module.scss';
 import { getCanEditArticle } from '../../model/selectors/articles';
 
@@ -29,7 +30,7 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     }, [id, navigate]);
 
     return (
-        <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+        <HStack justify="between" className={classNames('', {}, [className])}>
             <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
             </Button>
@@ -39,6 +40,6 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
                         {t('Редактировать')}
                     </Button>
                 )}
-        </div>
+        </HStack>
     );
 });

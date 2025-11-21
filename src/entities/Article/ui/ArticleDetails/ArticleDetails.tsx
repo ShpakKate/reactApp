@@ -10,6 +10,8 @@ import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
@@ -48,7 +50,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             return (
                 <ArticleCodeBlockComponent
                     key={block.id}
-                    className={cls.block}
                     block={block}
                 />
             );
@@ -56,7 +57,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             return (
                 <ArticleImageBlockComponent
                     key={block.id}
-                    className={cls.block}
                     block={block}
                 />
             );
@@ -64,7 +64,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             return (
                 <ArticleTextBlockComponent
                     key={block.id}
-                    className={cls.block}
                     block={block}
                 />
             );
@@ -83,10 +82,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = (
             <>
                 <Skeleton className={cls.avatar} height={200} width={200} border="50%" />
-                <Skeleton className={cls.title} height={32} width={300} />
-                <Skeleton className={cls.skeleton} height={24} width={600} />
-                <Skeleton className={cls.skeleton} height={200} width="100%" />
-                <Skeleton className={cls.skeleton} height={200} width="100%" />
+                <Skeleton height={32} width={300} />
+                <Skeleton height={24} width={600} />
+                <Skeleton height={200} width="100%" />
+                <Skeleton height={200} width="100%" />
             </>
         );
     } else if (error) {
@@ -99,27 +98,28 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     } else if (article) {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack justify="center" max>
                     <Avatar
                         size={200}
                         src={article.img}
                         className={cls.avatar}
                     />
-                </div>
-                <Text
-                    className={cls.title}
-                    title={article.title}
-                    text={article.subtitle}
-                    size={TextSize.L}
-                />
-                <div className={cls.articleInfo}>
-                    <Icon Svg={EyeIcon} className={cls.icon} />
-                    <Text title={`${article?.views}`} />
-                </div>
-                <div className={cls.articleInfo}>
-                    <Icon Svg={CalendarIcon} className={cls.icon} />
-                    <Text title={article.createdAt} />
-                </div>
+                </HStack>
+                <VStack gap="4">
+                    <Text
+                        title={article.title}
+                        text={article.subtitle}
+                        size={TextSize.L}
+                    />
+                    <HStack gap="8">
+                        <Icon Svg={EyeIcon} />
+                        <Text title={`${article?.views}`} />
+                    </HStack>
+                    <HStack gap="8">
+                        <Icon Svg={CalendarIcon} />
+                        <Text title={article.createdAt} />
+                    </HStack>
+                </VStack>
                 {article?.blocks.map(renderBlock)}
             </>
         );
@@ -127,9 +127,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetails, {}, [className])}>
+            <VStack gap="16" className={classNames(cls.ArticleDetails, {}, [className])}>
                 {content}
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });
