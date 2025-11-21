@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import ArticlesPage from 'pages/ArticlesPage/ui/ArticlesPage/ArticlesPage';
+import ArticlesPage from '../ArticlesPage/ArticlesPage';
 
 export default {
     title: 'pages/ArticlesPage',

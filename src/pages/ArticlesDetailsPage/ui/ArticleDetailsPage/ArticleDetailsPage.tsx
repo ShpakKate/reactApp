@@ -10,13 +10,13 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { AddCommentForm } from 'features/addCommentForm';
+import { Page } from 'widgets/Page/Page';
 import {
     sendCommentForArticle,
-} from 'pages/ArticlesDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
+} from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
     fetchCommentsByArticleId,
-} from 'pages/ArticlesDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { Page } from 'widgets/Page/Page';
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import {
     fetchArticleRecommendations,
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
