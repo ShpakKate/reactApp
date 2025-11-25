@@ -478,7 +478,7 @@
       "userId": "1",
       "type": [
         "ECONOMICS"
-        ],
+      ],
       "blocks": [
         {
           "id": "1",
@@ -595,6 +595,12 @@
       "userId": "1",
       "text": "python!!!",
       "id": "p5rMadd"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "768787",
+      "id": "Xc9Bto3"
     }
   ],
   "users": [
@@ -616,7 +622,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "jghwer",
+      "first": "Kate",
       "lastname": "asfewr",
       "age": 465,
       "currency": "RUB",
