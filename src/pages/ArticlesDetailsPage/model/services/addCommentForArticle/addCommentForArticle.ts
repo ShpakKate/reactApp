@@ -7,7 +7,7 @@ import {
     fetchCommentsByArticleId,
 } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-export const sendCommentForArticle = createAsyncThunk<
+export const addCommentForArticle = createAsyncThunk<
     CommentItem,
     string,
     ThunkConfig<string>
