@@ -58,6 +58,7 @@ module.exports = {
                     'as',
                     'defaultValue',
                     'label',
+                    'fallback',
                 ],
             },
         ],

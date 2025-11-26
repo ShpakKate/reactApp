@@ -1,4 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ARTICLE } from 'shared/const/article';
+import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
 import { ArticlesInfiniteList } from './ArticlesInfiniteList';
 
 export default {
@@ -13,3 +16,20 @@ const Template: ComponentStory<typeof ArticlesInfiniteList> = (args) => <Article
 
 export const Normal = Template.bind({});
 Normal.args = {};
+Normal.decorators = [StoreDecorator({
+    articlesPage: {
+        isLoading: false,
+        error: undefined,
+        view: ArticleView.SMALL,
+        entities: {},
+        ids: ['1', '2'],
+        page: 1,
+        hasMore: true,
+        _inited: false,
+        limit: 9,
+        sort: ArticleSortField.CREATED,
+        search: '',
+        order: 'asc',
+        type: ArticleType.ALL,
+    },
+})];

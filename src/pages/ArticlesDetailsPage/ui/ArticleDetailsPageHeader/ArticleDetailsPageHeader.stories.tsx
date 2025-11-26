@@ -1,4 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ARTICLE } from 'shared/const/article';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 
 export default {
@@ -11,5 +15,28 @@ export default {
 
 const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => <ArticleDetailsPageHeader {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const NotEdit = Template.bind({});
+NotEdit.args = {
+    id: '1',
+};
+NotEdit.decorators = [StoreDecorator({
+    articleDetails: {
+        data: ARTICLE,
+    },
+})];
+
+export const Edit = Template.bind({});
+Edit.args = {
+    id: '1',
+};
+Edit.decorators = [StoreDecorator({
+    articleDetails: {
+        data: ARTICLE,
+    },
+    user: {
+        authData: {
+            id: '1',
+            username: 'Max',
+        },
+    },
+})];

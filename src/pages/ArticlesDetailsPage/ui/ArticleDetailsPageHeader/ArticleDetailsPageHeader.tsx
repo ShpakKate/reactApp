@@ -11,7 +11,7 @@ import { getCanEditArticle } from '../../model/selectors/articles';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
@@ -26,7 +26,9 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     }, [navigate]);
 
     const onEditArticle = useCallback(() => {
-        navigate(RoutePath.articles_edit.replace(':id', id));
+        if (id) {
+            navigate(RoutePath.articles_edit.replace(':id', id));
+        }
     }, [id, navigate]);
 
     return (
