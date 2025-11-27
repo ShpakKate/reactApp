@@ -7,9 +7,12 @@ import type {
 export {
     StoreProvider,
     createReduxStore,
-    StateSchema,
     ReduxStoreWithManager,
-    AppDispatch,
     ThunkExtraArg,
+};
+
+export type {
+    AppDispatch,
+    StateSchema,
     ThunkConfig,
 };

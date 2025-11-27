@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ARTICLE } from 'shared/const/article';
 import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
 import { ArticlesInfiniteList } from './ArticlesInfiniteList';
 
