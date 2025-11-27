@@ -59,6 +59,7 @@ module.exports = {
                     'defaultValue',
                     'label',
                     'fallback',
+                    'border',
                 ],
             },
         ],

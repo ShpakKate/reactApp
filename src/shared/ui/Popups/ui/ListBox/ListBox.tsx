@@ -1,11 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { Fragment, ReactNode, useState } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { DropdownDirection } from '../../types/ui';
-import { classNames } from '../../lib/classNames/classNames';
-import { HStack } from '../Stack/HStack/HStack';
-import { Button } from '../Button/Button';
+import { DropdownDirection } from '../../../../types/ui';
+import { classNames } from '../../../../lib/classNames/classNames';
+import { HStack } from '../../../Stack/HStack/HStack';
+import { Button } from '../../../Button/Button';
 import cls from './ListBox.module.scss';
+import popupCls from '../../styles/popups.module.scss';
+import { mapDirectionClass } from '../../styles/consts';
 
 export interface ListBoxItem {
     value: string;
@@ -23,13 +25,6 @@ interface ListBoxProps {
     label?: string;
     onChange: (value: string) => void;
 }
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight,
-};
 
 export function ListBox(props: ListBoxProps) {
     const {
@@ -52,7 +47,7 @@ export function ListBox(props: ListBoxProps) {
             {label && <span>{`${label}>`}</span>}
             <HListBox
                 as="div"
-                className={classNames(cls.ListBox, {}, [className])}
+                className={classNames('', {}, [className, popupCls.popup])}
                 value={value}
                 disabled={readOnly}
                 onChange={onChange}
@@ -74,8 +69,8 @@ export function ListBox(props: ListBoxProps) {
                                 <li className={classNames(
                                     cls.item,
                                     {
-                                        [cls.active]: active,
-                                        [cls.disabled]: item.disabled,
+                                        [popupCls.active]: active,
+                                        [popupCls.disabled]: item.disabled,
                                     },
                                 )}
                                 >
