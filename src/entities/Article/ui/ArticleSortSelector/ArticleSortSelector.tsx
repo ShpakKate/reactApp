@@ -12,7 +12,6 @@ interface ArticleSortSelectorProps {
     order: SortOrder;
     onChangeOrder: (newOrder: SortOrder) => void;
     onChangeSort: (newSort: ArticleSortField) => void;
-
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
