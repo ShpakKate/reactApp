@@ -15,6 +15,17 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config!.resolve!.modules!.push(paths.src);
     config!.resolve!.extensions!.push('.ts', '.tsx');
 
+    config!.resolve!.alias = {
+        ...config!.resolve!.alias,
+        '@': paths.src,
+        '@/entities': path.resolve(paths.src, 'entities'),
+        '@/shared': path.resolve(paths.src, 'shared'),
+        '@/app': path.resolve(paths.src, 'app'),
+        '@/features': path.resolve(paths.src, 'features'),
+        '@/pages': path.resolve(paths.src, 'pages'),
+        '@/widgets': path.resolve(paths.src, 'widgets'),
+    };
+
     // @ts-ignore
     config!.module!.rules = config!.module!.rules.map((rule: RuleSetRule) => {
         if (/svg/.test(rule.test as string)) {
