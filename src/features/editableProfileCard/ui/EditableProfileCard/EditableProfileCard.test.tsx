@@ -1,8 +1,8 @@
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
-import { profile } from 'shared/const/profileData';
 import { userEvent } from '@testing-library/user-event';
 import { screen } from '@testing-library/react';
-import { api$ } from 'shared/api/api';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
+import { profile } from '@/shared/const/profileData';
+import { api$ } from '@/shared/api/api';
 import { EditableProfileCard } from './EditableProfileCard';
 import { profileReducer } from '../../model/slice/profileSlice';
 
