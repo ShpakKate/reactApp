@@ -72,6 +72,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         '@kate_shpak_07/path-checker/import-checker': ['error', { alias: '@' }],
+        '@kate_shpak_07/path-checker/public-api-imports': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,

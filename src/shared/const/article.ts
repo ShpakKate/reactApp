@@ -1,5 +1,4 @@
-import { Article } from '@/entities/Article';
-import { ArticleBlockType, ArticleType } from '@/entities/Article/model/consts/articleConsts';
+import { ArticleBlockType, ArticleType, Article } from '@/entities/Article';
 
 export const ARTICLE: Article = {
     id: '1',
