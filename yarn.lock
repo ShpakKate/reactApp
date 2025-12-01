@@ -1589,10 +1589,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@kate_shpak_07/eslint-plugin-path-checker@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.npmjs.org/@kate_shpak_07/eslint-plugin-path-checker/-/eslint-plugin-path-checker-0.0.9.tgz"
-  integrity sha512-CMPh3VNG6d43DPsXIiCaIZ3UR2tJaSyEz2rKgm26Ts/tjlkDEgfBI4crMr8zedbcxkWrCEWovu2chWk72TFlbg==
+"@kate_shpak_07/eslint-plugin-path-checker@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.npmjs.org/@kate_shpak_07/eslint-plugin-path-checker/-/eslint-plugin-path-checker-0.0.10.tgz"
+  integrity sha512-pwcEYlRBT/C7Vdhx6vsswVCtGZuEmN7qA6tiBBv8tcXfqqunYqrbCNuiiPtUoyMfEsV3Cw9v9V0QyHT4k7QNOQ==
   dependencies:
     requireindex "^1.2.0"
 
