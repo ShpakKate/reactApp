@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Card } from '@/shared/ui/Card/Card';
 import { Text } from '@/shared/ui/Text/Text';
@@ -16,6 +15,7 @@ interface RatingProps {
     title: string;
     feedbackTitle: string;
     hasFeedback: boolean;
+    rate?: number;
     onCancel?: (starsCount: number) => void;
     onAccept?: (starsCount: number, feedback?: string) => void;
 }
@@ -26,23 +26,24 @@ export const RatingCard = memo((props: RatingProps) => {
         title,
         feedbackTitle,
         hasFeedback,
+        rate = 0,
         onCancel,
         onAccept,
     } = props;
     const { t } = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
     const onSelectStars = useCallback((selectedStarsCount: number) => {
         setStarsCount(selectedStarsCount);
 
-        if (!feedback) {
+        if (hasFeedback) {
             setIsModalOpen(true);
         } else {
             onAccept?.(selectedStarsCount, '');
         }
-    }, [feedback, onAccept]);
+    }, [hasFeedback, onAccept]);
 
     const acceptHandler = useCallback(() => {
         setIsModalOpen(false);
@@ -66,10 +67,10 @@ export const RatingCard = memo((props: RatingProps) => {
     );
 
     return (
-        <Card className={classNames('', {}, [className])}>
+        <Card className={className}>
             <VStack align="center" gap="8">
-                <Text title={title} />
-                <StarRating size={40} onSelect={onSelectStars} />
+                <Text title={!starsCount ? title : t('Спасибо за оценку!')} />
+                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy onClose={onClose}>
@@ -96,7 +97,6 @@ export const RatingCard = memo((props: RatingProps) => {
                     </VStack>
                 </Drawer>
             </MobileView>
-
         </Card>
     );
 });

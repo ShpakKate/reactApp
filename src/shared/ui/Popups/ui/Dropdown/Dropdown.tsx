@@ -72,4 +72,3 @@ export function Dropdown(props: DropdownProps) {
         </Menu>
     );
 }
-'p';
