@@ -1,5 +1,8 @@
+// eslint-disable-next-line @kate_shpak_07/path-checker/layer-imports
 import { Profile } from '@/entities/Profile';
+// eslint-disable-next-line @kate_shpak_07/path-checker/layer-imports
 import { Currency } from '@/entities/Currency';
+// eslint-disable-next-line @kate_shpak_07/path-checker/layer-imports
 import { Country } from '@/entities/Country';
 
 export const profile: Profile = {

@@ -1,3 +1,4 @@
+// eslint-disable-next-line @kate_shpak_07/path-checker/layer-imports
 import { ArticleBlockType, ArticleType, Article } from '@/entities/Article';
 
 export const ARTICLE: Article = {

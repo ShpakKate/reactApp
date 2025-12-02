@@ -35,7 +35,7 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
     ], [t]);
 
     const onTabClick = useCallback((tab: TabItem) => {
-        onChangeType(tab.value);
+        onChangeType(tab.value as ArticleType);
     }, [onChangeType]);
 
     return (

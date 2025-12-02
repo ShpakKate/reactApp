@@ -1,11 +1,10 @@
 import { memo, ReactNode, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleType } from '@/entities/Article';
 import { Card, CardTheme } from '../Card/Card';
 import cls from './Tabs.module.scss';
 
 export interface TabItem {
-    value: ArticleType;
+    value: string;
     content: ReactNode;
 }
 

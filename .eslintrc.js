@@ -83,6 +83,13 @@ module.exports = {
                 ],
             },
         ],
+        '@kate_shpak_07/path-checker/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

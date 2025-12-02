@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+// eslint-disable-next-line @kate_shpak_07/path-checker/layer-imports
 import { ArticleType } from '@/entities/Article';
 import { Tabs } from './Tabs';
 
