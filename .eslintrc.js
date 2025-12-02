@@ -72,7 +72,17 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         '@kate_shpak_07/path-checker/import-checker': ['error', { alias: '@' }],
-        '@kate_shpak_07/path-checker/public-api-imports': ['error', { alias: '@' }],
+        '@kate_shpak_07/path-checker/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: [
+                    '**/*.test.ts',
+                    '**/*.story.ts',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,
