@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ARTICLE } from '@/shared/const/article';
-import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 export default {

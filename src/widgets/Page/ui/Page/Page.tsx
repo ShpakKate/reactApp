@@ -1,5 +1,5 @@
 import {
-    memo, MutableRefObject, ReactNode, UIEvent, useMemo, useRef,
+    memo, MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';

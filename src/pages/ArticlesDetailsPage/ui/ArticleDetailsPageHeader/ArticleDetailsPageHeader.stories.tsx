@@ -1,8 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ARTICLE } from '@/shared/const/article';
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 
 export default {
