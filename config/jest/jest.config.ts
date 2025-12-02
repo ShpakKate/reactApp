@@ -39,11 +39,12 @@ export default {
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-        '^shared/(.*)$': '<rootDir>/src/shared/$1',
-        '^entities/(.*)$': '<rootDir>/src/entities/$1',
-        '^widgets/(.*)$': '<rootDir>/src/widgets/$1',
-        '^app/(.*)$': '<rootDir>/src/app/$1',
-        '^pages/(.*)$': '<rootDir>/src/pages/$1',
+        '^@/(.*)$': '<rootDir>/src/$1',
+        // '^shared/(.*)$': '<rootDir>/src/shared/$1',
+        // '^entities/(.*)$': '<rootDir>/src/entities/$1',
+        // '^widgets/(.*)$': '<rootDir>/src/widgets/$1',
+        // '^app/(.*)$': '<rootDir>/src/app/$1',
+        // '^pages/(.*)$': '<rootDir>/src/pages/$1',
     },
     reporters: [
         'default',
@@ -54,6 +55,11 @@ export default {
             inlineSource: true,
         }],
     ],
+    // fetchFailIgnore: [
+    // /locales\/.*\.json$/, // все JSON файлы в папке locales
+    // // /translation\.json$/, // все файлы translation.json
+    // /\.json$/, // все JSON файлы (если нужно)
+    // ],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
