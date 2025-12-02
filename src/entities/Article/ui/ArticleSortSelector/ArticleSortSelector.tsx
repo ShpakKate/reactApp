@@ -52,13 +52,13 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-            <Select
+            <Select<ArticleSortField>
                 options={sortFieldOptions}
                 label={t('Сортировать по')}
                 value={sort}
                 onChange={onChangeSort}
             />
-            <Select
+            <Select<SortOrder>
                 className={cls.order}
                 options={orderOptions}
                 label={t('по')}
