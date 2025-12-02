@@ -16,6 +16,7 @@ import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import {
     addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -27,7 +28,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     const { t } = useTranslation();
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));

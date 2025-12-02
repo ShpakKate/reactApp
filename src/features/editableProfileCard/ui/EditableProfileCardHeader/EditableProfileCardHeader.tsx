@@ -10,6 +10,7 @@ import { getProfileData } from '../../model/selectors/getProfileData/getProfileD
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly';
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
@@ -22,7 +23,7 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
     const readOnly = useSelector(getProfileReadOnly);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadOnly(false));
