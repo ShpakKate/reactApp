@@ -9,10 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [ 18.x ]
+#        node-version: [ 17.x ]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+#      - uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -22,6 +24,8 @@ jobs:
 #      - name: build production project
 #        run: npm run build:prod
 #        if: always()
+      - name:
+          run: rm -rf node_modules/.cache
       - name: linting typescript
         run: npm run lint:ts
         if: always()
