@@ -21,7 +21,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm ci
+        run: | 
+          npm ci
           # Явно устанавливаем совместимые версии postcss и postcss-scss
           npm install postcss@8.4.38 postcss-scss@4.0.9 --no-save --legacy-peer-deps
       - name: clean cache
