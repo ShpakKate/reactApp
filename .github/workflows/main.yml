@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 18.x ]
+        node-version: [ 20.x ]
 #        node-version: [ 17.x ]
 
     steps:
@@ -21,11 +21,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm ci --legacy-peer-deps
+      - name: clean cache
+        run: rm -rf node_modules/.cache
 #      - name: build production project
 #        run: npm run build:prod
 #        if: always()
-      - name:
-          run: rm -rf node_modules/.cache
       - name: linting typescript
         run: npm run lint:ts
         if: always()
