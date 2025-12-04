@@ -1580,10 +1580,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@kate_shpak_07/eslint-plugin-path-checker@^0.0.20":
-  version "0.0.20"
-  resolved "https://registry.npmjs.org/@kate_shpak_07/eslint-plugin-path-checker/-/eslint-plugin-path-checker-0.0.20.tgz"
-  integrity sha512-IFfKmWVWDacUFGneAa4Rm5JXNOJznxNe5zKr/uux7bt7XpcOxm2io0dW8Au90UTqhRju/Bw7iQf/XgZ5ct9rlg==
+"@kate_shpak_07/eslint-plugin-path-checker@^0.0.21":
+  version "0.0.21"
+  resolved "https://registry.npmjs.org/@kate_shpak_07/eslint-plugin-path-checker/-/eslint-plugin-path-checker-0.0.21.tgz"
+  integrity sha512-nCjgnxIkjmio7gasojTJiKSbH+APMtEO52QkQqVTv875i9opaODn6z6tVZpCrvd9cAefXiv1uTFv40dWZ5W24w==
   dependencies:
     micromatch "^4.0.8"
     requireindex "^1.2.0"
