@@ -92,6 +92,8 @@ module.exports = {
             },
         ],
         'unused-imports/no-unused-imports': 'error',
+        'no-unused-expressions': 'off', // убрать это правило. Добавлено было в 113
+        'implicit-arrow-linebreak': 'off', // убрать это правило. Добавлено было в 113
     },
     globals: {
         __IS_DEV__: true,

@@ -11,9 +11,14 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import {
     AppRoutes,
     getRouteAbout,
-    getRouteAdminPanel, getRouteArticles, getRouteArticlesCreate, getRouteArticlesDetails, getRouteArticlesEdit,
+    getRouteAdminPanel,
+    getRouteArticles,
+    getRouteArticlesCreate,
+    getRouteArticlesDetails,
+    getRouteArticlesEdit,
     getRouteForbidden,
-    getRouteMain, getRouteProfile,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/const/router';
 import { AppRouteProps } from '@/shared/types/router';
 

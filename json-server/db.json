@@ -724,6 +724,15 @@
         "MANAGER"
       ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
   "profile": [
@@ -732,7 +741,7 @@
       "first": "timur",
       "lastname": "ulbi",
       "age": 465,
-      "currency": "USD",
+      "currency": "RUB",
       "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
@@ -792,27 +801,6 @@
       "rate": 3,
       "feedback": "",
       "id": "bcPnbbZ"
-    },
-    {
-      "userId": "1",
-      "articleId": "18",
-      "rate": 3,
-      "feedback": " норм читать",
-      "id": "AsRnlJ6"
-    },
-    {
-      "userId": "1",
-      "articleId": "5",
-      "rate": 5,
-      "feedback": " идеально",
-      "id": "30p6A_6"
-    },
-    {
-      "userId": "1",
-      "articleId": "14",
-      "rate": 3,
-      "feedback": "",
-      "id": "_HT8HW_"
     }
   ],
   "profile-ratings": [
