@@ -42,16 +42,22 @@ const AddCommentForm = (props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <HStack justify="between" className={classNames(cls.AddCommentForm, {}, [className])}>
+            <HStack
+                justify="between"
+                className={classNames(cls.AddCommentForm, {}, [className])}
+                data-testid="ArticlesCommentForm"
+            >
                 <Input
                     placeholder={t('Введите текст комментрия')}
                     className={cls.input}
                     value={text}
                     onChange={onCommentTextChange}
+                    data-testid="ArticlesCommentForm.Input"
                 />
                 <Button
                     theme={ButtonTheme.OUTLINE}
                     onClick={onSendHandler}
+                    data-testid="ArticlesCommentForm.Button"
                 >
                     {t('Отправить')}
                 </Button>

@@ -25,6 +25,8 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
     const readOnly = useSelector(getProfileReadOnly);
     const dispatch = useAppDispatch();
 
+    console.log('readOnly =====>', readOnly);
+
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadOnly(false));
     }, [dispatch]);

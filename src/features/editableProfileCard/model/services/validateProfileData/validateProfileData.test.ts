@@ -15,7 +15,7 @@ const data = {
 };
 
 describe('validateProfileData.test', () => {
-    test('success login', async () => {
+    test('success common', async () => {
         const result = validateProfileData(data);
 
         expect(result).toEqual([]);

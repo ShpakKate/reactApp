@@ -5,7 +5,7 @@ import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 const initialState: ProfileSchema = {
-    isLoading: false, readonly: false, error: undefined, data: undefined,
+    isLoading: false, readonly: true, error: undefined, data: undefined,
 };
 
 export const profileSlice = createSlice({
