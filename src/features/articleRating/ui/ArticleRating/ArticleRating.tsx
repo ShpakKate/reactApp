@@ -23,31 +23,38 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
 
     const [rateArticleMutation] = useRateArticle();
 
-    const handleArticleMutation = useCallback((starsCount: number, feedback?: string) => {
-        try {
-            rateArticleMutation({
-                userId: user?.id ?? '',
-                articleId,
-                rate: starsCount,
-                feedback,
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    }, [articleId, rateArticleMutation, user?.id]);
+    const handleArticleMutation = useCallback(
+        (starsCount: number, feedback?: string) => {
+            try {
+                rateArticleMutation({
+                    userId: user?.id ?? '',
+                    articleId,
+                    rate: starsCount,
+                    feedback,
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        },
+        [articleId, rateArticleMutation, user?.id],
+    );
 
-    const onCancel = useCallback((starsCount: number) => {
-        handleArticleMutation(starsCount);
-    }, [handleArticleMutation]);
+    const onCancel = useCallback(
+        (starsCount: number) => {
+            handleArticleMutation(starsCount);
+        },
+        [handleArticleMutation],
+    );
 
-    const onAccept = useCallback((starsCount: number, feedback?: string) => {
-        handleArticleMutation(starsCount, feedback);
-    }, [handleArticleMutation]);
+    const onAccept = useCallback(
+        (starsCount: number, feedback?: string) => {
+            handleArticleMutation(starsCount, feedback);
+        },
+        [handleArticleMutation],
+    );
 
     if (isLoading) {
-        return (
-            <Skeleton width="100%" height={120} />
-        );
+        return <Skeleton width="100%" height={120} />;
     }
 
     const rating = articleRating?.[0];
@@ -56,7 +63,9 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
         <RatingCard
             className={className}
             title={t('Оцените статью')}
-            feedbackTitle={t('Оставьте свой отзыв о статье. Это поможет улучшить качество.')}
+            feedbackTitle={t(
+                'Оставьте свой отзыв о статье. Это поможет улучшить качество.',
+            )}
             hasFeedback
             rate={rating?.rate}
             onCancel={onCancel}

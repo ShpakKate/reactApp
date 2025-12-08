@@ -12,7 +12,14 @@ const sharedUiDirectory = project.getDirectory(uiPath);
 const componentsDirs = sharedUiDirectory?.getDirectories();
 
 function isAbsolute(value: string): boolean {
-    const layers = ['app', 'shared', 'pages', 'widgets', 'entities', 'features'];
+    const layers = [
+        'app',
+        'shared',
+        'pages',
+        'widgets',
+        'entities',
+        'features',
+    ];
 
     return layers.some((layer) => value.startsWith(layer));
 }
@@ -23,7 +30,9 @@ componentsDirs?.forEach((directory) => {
 
     if (!indexFile) {
         const sourceCode = `export * from './${directory.getBaseName()}';\n`;
-        const file = directory.createSourceFile(indexFilePath, sourceCode, { overwrite: true });
+        const file = directory.createSourceFile(indexFilePath, sourceCode, {
+            overwrite: true,
+        });
         file.save().then();
     }
 });

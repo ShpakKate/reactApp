@@ -30,7 +30,9 @@ describe('user visit page with article', () => {
     });
 
     it('and added a recommendation', () => {
-        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+        cy.intercept('GET', '**/articles/*', {
+            fixture: 'article-details.json',
+        });
         cy.getByTestId('ArticleDetails.Info').should('exist');
         cy.getByTestId('RatingCard').scrollIntoView();
         cy.setRate(5, 'feedback');

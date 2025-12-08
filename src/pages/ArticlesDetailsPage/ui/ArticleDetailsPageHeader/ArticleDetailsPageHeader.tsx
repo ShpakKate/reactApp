@@ -14,34 +14,42 @@ interface ArticleDetailsPageHeaderProps {
     id?: string;
 }
 
-export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
-    const { className, id } = props;
-    const { t } = useTranslation();
+export const ArticleDetailsPageHeader = memo(
+    (props: ArticleDetailsPageHeaderProps) => {
+        const { className, id } = props;
+        const { t } = useTranslation();
 
-    const navigate = useNavigate();
-    const canEdit = useSelector(getCanEditArticle);
+        const navigate = useNavigate();
+        const canEdit = useSelector(getCanEditArticle);
 
-    const onBackToList = useCallback(() => {
-        navigate(getRouteArticles());
-    }, [navigate]);
+        const onBackToList = useCallback(() => {
+            navigate(getRouteArticles());
+        }, [navigate]);
 
-    const onEditArticle = useCallback(() => {
-        if (id) {
-            navigate(getRouteArticlesEdit(id));
-        }
-    }, [id, navigate]);
+        const onEditArticle = useCallback(() => {
+            if (id) {
+                navigate(getRouteArticlesEdit(id));
+            }
+        }, [id, navigate]);
 
-    return (
-        <HStack justify="between" className={classNames('', {}, [className])}>
-            <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                {t('Назад к списку')}
-            </Button>
-            {canEdit
-                && (
-                    <Button className={cls.editBtn} theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
+        return (
+            <HStack
+                justify="between"
+                className={classNames('', {}, [className])}
+            >
+                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+                    {t('Назад к списку')}
+                </Button>
+                {canEdit && (
+                    <Button
+                        className={cls.editBtn}
+                        theme={ButtonTheme.OUTLINE}
+                        onClick={onEditArticle}
+                    >
                         {t('Редактировать')}
                     </Button>
                 )}
-        </HStack>
-    );
-});
+            </HStack>
+        );
+    },
+);

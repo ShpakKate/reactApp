@@ -5,5 +5,8 @@ export { getArticleDetailsData } from './model/selectors/articleDetails';
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { articleDetailsReducer } from './model/slice/articleDetailsSlice';
 export {
-    ArticleView, ArticleType, ArticleSortField, ArticleBlockType,
+    ArticleView,
+    ArticleType,
+    ArticleSortField,
+    ArticleBlockType,
 } from './model/consts/articleConsts';

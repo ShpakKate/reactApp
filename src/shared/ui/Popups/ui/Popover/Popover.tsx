@@ -15,12 +15,7 @@ interface PopoverProps {
 }
 
 export const Popover = memo((props: PopoverProps) => {
-    const {
-        className,
-        trigger,
-        direction = 'bottom right',
-        children,
-    } = props;
+    const { className, trigger, direction = 'bottom right', children } = props;
     const { t } = useTranslation();
 
     const menuClasses = [mapDirectionClass[direction]];

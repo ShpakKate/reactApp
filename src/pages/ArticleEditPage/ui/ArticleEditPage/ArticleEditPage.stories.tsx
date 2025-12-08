@@ -12,12 +12,16 @@ export default {
     },
 } as ComponentMeta<typeof ArticleEditPage>;
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditPage {...args} />;
+const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
+    <ArticleEditPage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data: ARTICLE,
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: ARTICLE,
+        },
+    }),
+];

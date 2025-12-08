@@ -1,7 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import React, {
-    memo, useCallback, useEffect, useState,
-} from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
@@ -41,15 +39,27 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Text className={cls.appName} title={t('Test React App')} theme={TextTheme.INVERTED} />
-                <AppLink to={getRouteArticlesCreate()} theme={AppLinkTheme.SECONDARY}>
+                <Text
+                    className={cls.appName}
+                    title={t('Test React App')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={getRouteArticlesCreate()}
+                    theme={AppLinkTheme.SECONDARY}
+                >
                     {t('Создать статью')}
                 </AppLink>
                 <HStack gap="16" className={cls.actions}>
                     <NotificationButton />
                     <AvatarDropDown />
                 </HStack>
-                {isAuthModal && <LoginModal isOpen={isAuthModal && !authData} onClose={onCloseModal} />}
+                {isAuthModal && (
+                    <LoginModal
+                        isOpen={isAuthModal && !authData}
+                        onClose={onCloseModal}
+                    />
+                )}
             </header>
         );
     }
@@ -63,7 +73,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            {isAuthModal && <LoginModal isOpen={isAuthModal && !authData} onClose={onCloseModal} />}
+            {isAuthModal && (
+                <LoginModal
+                    isOpen={isAuthModal && !authData}
+                    onClose={onCloseModal}
+                />
+            )}
         </header>
     );
 });

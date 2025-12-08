@@ -27,6 +27,11 @@ export const ArticlesInfiniteList = memo((props: ArticlesInfiniteListProps) => {
     }
 
     return (
-        <ArticleList className={className} articles={articles} view={view} isLoading={isLoading} />
+        <ArticleList
+            className={className}
+            articles={articles}
+            view={view}
+            isLoading={isLoading}
+        />
     );
 });

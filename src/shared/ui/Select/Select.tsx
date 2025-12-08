@@ -17,14 +17,7 @@ interface SelectProps<T extends string> {
 }
 
 export const Select = <T extends string>(props: SelectProps<T>) => {
-    const {
-        className,
-        label,
-        options,
-        value,
-        readOnly,
-        onChange,
-    } = props;
+    const { className, label, options, value, readOnly, onChange } = props;
 
     const mods: Mods = {};
 
@@ -34,15 +27,19 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
         }
     };
 
-    const optionsList = useMemo(() => options?.map((opt) => (
-        <option
-            className={cls.option}
-            value={opt.value}
-            key={opt.value}
-        >
-            {opt.content}
-        </option>
-    )), [options]);
+    const optionsList = useMemo(
+        () =>
+            options?.map((opt) => (
+                <option
+                    className={cls.option}
+                    value={opt.value}
+                    key={opt.value}
+                >
+                    {opt.content}
+                </option>
+            )),
+        [options],
+    );
 
     return (
         <div className={classNames(cls.Wrapper, mods, [className])}>

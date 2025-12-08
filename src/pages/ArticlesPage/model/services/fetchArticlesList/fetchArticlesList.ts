@@ -12,50 +12,50 @@ import {
 } from '../../selectors/articlePageSelectors';
 
 export interface FetchArticlesListProps {
-    replace?: boolean
+    replace?: boolean;
 }
 
 export const fetchArticlesList = createAsyncThunk<
     Article[],
     FetchArticlesListProps,
     ThunkConfig<string>
->(
-    'articlePage/fetchArticlesList',
-    async (props, thunkApi) => {
-        const { replace } = props;
-        const { extra, rejectWithValue, getState } = thunkApi;
+>('articlePage/fetchArticlesList', async (props, thunkApi) => {
+    const { replace } = props;
+    const { extra, rejectWithValue, getState } = thunkApi;
 
-        const limit = getArticlesPageLimit(getState());
-        const sort = getArticlesPageSort(getState());
-        const order = getArticlesPageOrder(getState());
-        const search = getArticlesPageSearch(getState());
-        const type = getArticlesPageType(getState());
-        const page = getArticlesPageNum(getState());
+    const limit = getArticlesPageLimit(getState());
+    const sort = getArticlesPageSort(getState());
+    const order = getArticlesPageOrder(getState());
+    const search = getArticlesPageSearch(getState());
+    const type = getArticlesPageType(getState());
+    const page = getArticlesPageNum(getState());
 
-        try {
-            addQueryParams({
-                sort, order, search, type,
-            });
+    try {
+        addQueryParams({
+            sort,
+            order,
+            search,
+            type,
+        });
 
-            const response = await extra.api.get<Article[]>('/articles', {
-                params: {
-                    _expand: 'user',
-                    _limit: limit,
-                    _page: page,
-                    _sort: sort,
-                    _order: order,
-                    type_like: type === ArticleType.ALL ? undefined : type,
-                    q: search,
-                },
-            });
+        const response = await extra.api.get<Article[]>('/articles', {
+            params: {
+                _expand: 'user',
+                _limit: limit,
+                _page: page,
+                _sort: sort,
+                _order: order,
+                type_like: type === ArticleType.ALL ? undefined : type,
+                q: search,
+            },
+        });
 
-            if (!response.data) {
-                throw new Error();
-            }
-
-            return response.data;
-        } catch (e) {
-            return rejectWithValue('error');
+        if (!response.data) {
+            throw new Error();
         }
-    },
-);
+
+        return response.data;
+    } catch (e) {
+        return rejectWithValue('error');
+    }
+});

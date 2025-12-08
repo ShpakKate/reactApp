@@ -11,7 +11,7 @@ import { ArticleView } from '@/entities/Article';
 interface ArticleViewSelectorProps {
     className?: string;
     view: ArticleView;
-    onViewClick?: (view: ArticleView) => void
+    onViewClick?: (view: ArticleView) => void;
 }
 
 const viewTypes = [
@@ -36,11 +36,16 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     return (
         <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
             {viewTypes.map((viewTyp, index) => (
-                <Button theme={ButtonTheme.CLEAR} onClick={onClick(viewTyp.view)} key={index}>
+                <Button
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onClick(viewTyp.view)}
+                    key={index}
+                >
                     <Icon
                         Svg={viewTyp.icon}
-                        className={classNames('', { [cls.notSelected]: viewTyp.view !== view })}
-
+                        className={classNames('', {
+                            [cls.notSelected]: viewTyp.view !== view,
+                        })}
                     />
                 </Button>
             ))}

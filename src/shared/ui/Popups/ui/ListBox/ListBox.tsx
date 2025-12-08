@@ -53,11 +53,11 @@ export function ListBox(props: ListBoxProps) {
                 onChange={onChange}
             >
                 <HListBox.Button className={cls.trigger}>
-                    <Button disabled={readOnly}>
-                        {value ?? defaultValue}
-                    </Button>
+                    <Button disabled={readOnly}>{value ?? defaultValue}</Button>
                 </HListBox.Button>
-                <HListBox.Options className={classNames(cls.options, {}, optionClasses)}>
+                <HListBox.Options
+                    className={classNames(cls.options, {}, optionClasses)}
+                >
                     {items.map((item) => (
                         <HListBox.Option
                             key={item.value}
@@ -66,13 +66,11 @@ export function ListBox(props: ListBoxProps) {
                             as={Fragment}
                         >
                             {({ active, selected }) => (
-                                <li className={classNames(
-                                    cls.item,
-                                    {
+                                <li
+                                    className={classNames(cls.item, {
                                         [popupCls.active]: active,
                                         [popupCls.disabled]: item.disabled,
-                                    },
-                                )}
+                                    })}
                                 >
                                     {selected && '!!!'}
                                     {item.content}
@@ -83,6 +81,5 @@ export function ListBox(props: ListBoxProps) {
                 </HListBox.Options>
             </HListBox>
         </HStack>
-
     );
 }

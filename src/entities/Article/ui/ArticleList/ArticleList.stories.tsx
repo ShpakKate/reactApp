@@ -11,7 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+    <ArticleList {...args} />
+);
 
 export const LoadingBig = Template.bind({});
 LoadingBig.args = {
@@ -29,24 +31,20 @@ LoadingSmall.args = {
 
 export const ListSmall = Template.bind({});
 ListSmall.args = {
-    articles: new Array(9)
-        .fill(0)
-        .map((item, index) => ({
-            ...ARTICLE,
-            id: String(index),
-        })),
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...ARTICLE,
+        id: String(index),
+    })),
     isLoading: false,
     view: ArticleView.SMALL,
 };
 
 export const ListBig = Template.bind({});
 ListBig.args = {
-    articles: new Array(9)
-        .fill(0)
-        .map((item, index) => ({
-            ...ARTICLE,
-            id: String(index),
-        })),
+    articles: new Array(9).fill(0).map((item, index) => ({
+        ...ARTICLE,
+        id: String(index),
+    })),
     isLoading: false,
     view: ArticleView.BIG,
 };

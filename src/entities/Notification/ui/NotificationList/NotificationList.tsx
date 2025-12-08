@@ -36,9 +36,10 @@ export const NotificationList = memo((props: NotificationListProps) => {
             max
             className={classNames(cls.NotificationList, {}, [className])}
         >
-            {notifications?.length && notifications.map((item) => (
-                <NotificationItem key={item.id} item={item} />
-            ))}
+            {notifications?.length &&
+                notifications.map((item) => (
+                    <NotificationItem key={item.id} item={item} />
+                ))}
         </VStack>
     );
 });

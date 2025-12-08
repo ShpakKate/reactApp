@@ -17,45 +17,55 @@ export const initArticlesPage = createAsyncThunk<
     void,
     URLSearchParams,
     ThunkConfig<string>
->(
-    'articlePage/initArticlesPage',
-    async (searchParams, thunkApi) => {
-        const { getState, dispatch } = thunkApi;
+>('articlePage/initArticlesPage', async (searchParams, thunkApi) => {
+    const { getState, dispatch } = thunkApi;
 
-        const inited = getArticlesPageInited(getState());
+    const inited = getArticlesPageInited(getState());
 
-        if (!inited) {
-            const methods: UrlParamConfig[] = [
-                { key: 'order', method: 'setOrder' },
-                { key: 'sort', method: 'setSort' },
-                { key: 'search', method: 'setSearch' },
-            ];
+    if (!inited) {
+        const methods: UrlParamConfig[] = [
+            { key: 'order', method: 'setOrder' },
+            { key: 'sort', method: 'setSort' },
+            { key: 'search', method: 'setSearch' },
+        ];
 
-            methods.forEach((method) => {
-                const paramFromUrl = searchParams.get(method.key);
+        methods.forEach((method) => {
+            const paramFromUrl = searchParams.get(method.key);
 
-                if (paramFromUrl) {
-                    switch (method.method) {
+            if (paramFromUrl) {
+                switch (method.method) {
                     case 'setOrder':
                         if (paramFromUrl === 'asc' || paramFromUrl === 'desc') {
-                            dispatch(articlePageActions.setOrder(paramFromUrl as SortOrder));
+                            dispatch(
+                                articlePageActions.setOrder(
+                                    paramFromUrl as SortOrder,
+                                ),
+                            );
                         }
                         break;
                     case 'setSort':
-                        if (Object.values(ArticleSortField).includes(paramFromUrl as ArticleSortField)) {
-                            dispatch(articlePageActions.setSort(paramFromUrl as ArticleSortField));
+                        if (
+                            Object.values(ArticleSortField).includes(
+                                paramFromUrl as ArticleSortField,
+                            )
+                        ) {
+                            dispatch(
+                                articlePageActions.setSort(
+                                    paramFromUrl as ArticleSortField,
+                                ),
+                            );
                         }
                         break;
                     case 'setSearch':
                         dispatch(articlePageActions.setSearch(paramFromUrl));
                         break;
-                    default: break;
-                    }
+                    default:
+                        break;
                 }
-            });
+            }
+        });
 
-            dispatch(articlePageActions.initState());
-            dispatch(fetchArticlesList({}) as any);
-        }
-    },
-);
+        dispatch(articlePageActions.initState());
+        dispatch(fetchArticlesList({}) as any);
+    }
+});

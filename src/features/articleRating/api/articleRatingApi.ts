@@ -6,7 +6,7 @@ interface GetArticleRatingArg {
     articleId: string;
 }
 
-interface RateArticleArg extends GetArticleRatingArg{
+interface RateArticleArg extends GetArticleRatingArg {
     rate: number;
     feedback?: string;
 }

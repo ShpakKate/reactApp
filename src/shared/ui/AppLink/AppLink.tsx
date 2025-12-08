@@ -1,7 +1,5 @@
 import { Link, LinkProps } from 'react-router-dom';
-import {
-    FC, HTMLAttributeAnchorTarget, memo, ReactNode,
-} from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 
@@ -31,7 +29,9 @@ export const AppLink: FC<AppLinkProps> = memo((props: AppLinkProps) => {
     return (
         <Link
             to={to}
-            className={classNames(cls.AppLink, { [cls[theme]]: true }, [className])}
+            className={classNames(cls.AppLink, { [cls[theme]]: true }, [
+                className,
+            ])}
             {...otherProps}
             target={target}
         >

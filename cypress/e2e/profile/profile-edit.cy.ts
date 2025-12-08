@@ -22,7 +22,13 @@ describe('User visits their profile page', () => {
         const newLastName = 'newLastName';
 
         cy.updateProfile(newName, newLastName);
-        cy.get(selectByTestId('ProfileCard.FirstName')).should('have.value', newName);
-        cy.get(selectByTestId('ProfileCard.LastName')).should('have.value', newLastName);
+        cy.get(selectByTestId('ProfileCard.FirstName')).should(
+            'have.value',
+            newName,
+        );
+        cy.get(selectByTestId('ProfileCard.LastName')).should(
+            'have.value',
+            newLastName,
+        );
     });
 });

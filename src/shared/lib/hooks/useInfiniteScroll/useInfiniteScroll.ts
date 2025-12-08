@@ -29,11 +29,11 @@ export const useInfiniteScroll = ({ callback, wrapperRef, triggerRef }) => {
             observer.observe(triggerElement);
         }
 
-        return (() => {
+        return () => {
             if (observer && triggerElement) {
                 // eslint-disable-next-line react-hooks/exhaustive-deps
                 observer.unobserve(triggerElement);
             }
-        });
+        };
     }, [callback, triggerRef, wrapperRef]);
 };
