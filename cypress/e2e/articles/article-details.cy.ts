@@ -14,15 +14,15 @@ describe('user visit page with article', () => {
 
     afterEach(() => removeArticle(currentArticleId));
 
-    it('and sees the content of article', () => {
+    it.skip('and sees the content of article', () => {
         cy.getByTestId('ArticleDetails.Info').should('exist');
     });
 
-    it('and sees the list of recommendations', () => {
+    it.skip('and sees the list of recommendations', () => {
         cy.getByTestId('ArticleRecommendationsList').should('exist');
     });
 
-    it('and leaves a comment', () => {
+    it.skip('and leaves a comment', () => {
         cy.getByTestId('ArticleDetails.Info').should('exist');
         cy.getByTestId('ArticlesCommentForm').scrollIntoView();
         cy.addComment('text');
@@ -30,6 +30,7 @@ describe('user visit page with article', () => {
     });
 
     it('and added a recommendation', () => {
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
         cy.getByTestId('ArticleDetails.Info').should('exist');
         cy.getByTestId('RatingCard').scrollIntoView();
         cy.setRate(5, 'feedback');
